@@ -56,12 +56,12 @@ class PostController extends Controller
     {
         $request['title'] = $request->input('title');
         $request['content'] = $request->input('content');
+        $request['image'] = $request->input('image');
         $request['author'] = Auth::user()->id;
 
+        // dd($request);
+
         if ($request->file) {
-            $validated = $request->validate([
-                'file' => 'nullable|mimes:jpg,jpeg,png|max:10000000',
-            ]);
 
             $fileName = $this->generateRandomString();
             $extension = $request->file->extension();
@@ -69,6 +69,8 @@ class PostController extends Controller
             Storage::putFileAs('img', $request->file, $fileName . '.' . $extension);
 
             $request['image'] = $fileName . '.' . $extension;
+
+            Post::create($request->all());
         }
 
         Post::create($request->all());
@@ -108,6 +110,6 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
     }
 }
