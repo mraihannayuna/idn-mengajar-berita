@@ -31,7 +31,7 @@
   </ul>
   <div class="col-md-3 text-end">
     @guest
-    <a href="{{ route('auth.login') }}" class="btn btn-outline-primary me-2 mb-2"
+    <a href="{{ route('login') }}" class="btn btn-outline-primary me-2 mb-2"
       >Hai, Tamu</a
     >
     @else
@@ -65,7 +65,7 @@
           >
         </li>
         <form
-          action="{{route('auth.logout')}}"
+          action="{{ route('logout') }}"
           id="logout-form"
           method="POST"
           style="display: none"

@@ -37,7 +37,7 @@
 </div>
 <div class="card mb-4">
   <h4 class="text-center mb-4 fw-bold">Login</h4>
-  <form method="POST" action="{{route('auth.login')}}">
+  <form method="POST" action="{{route('login')}}">
     @csrf
     <div class="mb-3">
       <label for="email" class="form-label fw-light">Email Address</label>
@@ -70,7 +70,7 @@
     <div class="sign-opt my-2 text-center">
       <p class="text-secondary">
         don't have any account?<a
-          href=" {{route('auth.register.form')}}"
+          href=" {{route('register')}}"
           class="mx-1 text-primary"
           >Sign Up</a
         >
