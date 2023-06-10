@@ -16,6 +16,7 @@ class Post extends Model
         'slug',
         'content',
         'image',
+        'author'
     ];
 
     /**
@@ -26,5 +27,16 @@ class Post extends Model
     public function writer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author', 'id');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($post) {
+            $title = str_replace('?', '', $post->title);
+            $post->slug = preg_replace('/\s+/', '-', $title);
+        });
+
     }
 }

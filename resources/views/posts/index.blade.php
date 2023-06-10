@@ -61,27 +61,27 @@
   <div class="card-body">
     <h5 class="card-title">
       {{ $post->title }}<small class="px-2 text-muted fs-6 fw-light display-6"
-        >{{$post->author}}</small
+        >{{$post->writer['name']}}</small
       >
     </h5>
     <hr />
     <p class="card-text">
       {!!Illuminate\Support\Str::limit($post->content, 400)!!}
     </p>
-    <small class="card-text text-end fw-light">
+    {{-- <small class="card-text text-end fw-light">
       <span>{{$post->comments->count()}} Comments</span>
-    </small>
+    </small> --}}
     <br />
     <small class="card-text text-end fw-light">
       <span>{{ date("d M Y", strtotime($post->created_at)) }}</span>
     </small>
   </div>
   <div class="button d-flex">
-    <a href="{{ url('posts/' . $post->slug) }}" class="btn btn-outline-dark"
+    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-outline-dark"
       >View More</a
     >
     <a
-      href="{{ url('posts/' . $post->slug . '/edit') }}"
+      href="{{ route('posts.edit' , $post->id) }}"
       class="btn btn-outline-primary"
       >Edit Post</a
     >

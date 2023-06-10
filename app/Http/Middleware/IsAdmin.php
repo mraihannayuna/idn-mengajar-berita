@@ -18,7 +18,7 @@ class IsAdmin
     {
         $user = Auth::user();
 
-        if(!$user->role||$user->role != 'admin' ){
+        if($user->is_admin == false || !Auth::check()){
             return redirect('/');
         }
 

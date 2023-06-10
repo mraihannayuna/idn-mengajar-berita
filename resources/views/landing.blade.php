@@ -43,7 +43,7 @@
         <a href="#main" class="btn btn-md btn-outline-light rounded-pill"
           >Continue</a
         >
-        @elseif (Auth::user()->role == 'admin')
+        @elseif (Auth::user()->is_admin == true)
         <a
           href="{{route('posts.index')}}"
           class="btn btn-md btn-outline-light rounded-pill"
@@ -67,7 +67,7 @@
         >
           <div class="col-8 p-4 d-flex flex-column position-static">
             <strong class="d-inline-block text-primary-emphasis"
-              >{{$post->author}}</strong
+              >{{$post->writer['name']}}</strong
             >
             <h3 class="mb-0">{{$post->title}}</h3>
             <div class="mb-1 text-body-secondary">
