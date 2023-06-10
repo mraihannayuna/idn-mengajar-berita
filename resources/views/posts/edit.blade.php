@@ -72,7 +72,7 @@
         <span class="fw-bold">{{$post->title}}</span>
       </div>
       <div class="modal-footer">
-        <form method="post">
+        <form method="post" action="{{ route('posts.destroy', $post->id) }}">
           @method('DELETE') @csrf
           <button type="submit" class="btn btn-danger">Hapus</button>
         </form>

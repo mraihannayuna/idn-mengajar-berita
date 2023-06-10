@@ -62,6 +62,9 @@ class PostController extends Controller
         // dd($request);
 
         if ($request->file) {
+            // $validated = $request->validate([
+            //     'file' => 'nullable|mimes:jpg,jpeg,png|max:10000000',
+            // ]);
 
             $fileName = $this->generateRandomString();
             $extension = $request->file->extension();
@@ -108,8 +111,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
+        $post::findOrFail($post->id);
+        $post->delete();
+
+        return redirect()->route('posts.index');
 
     }
 }
