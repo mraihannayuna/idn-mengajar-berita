@@ -33,7 +33,7 @@
 
 <div class="card my-5">
   <h4 class="text-center">Sign Up</h4>
-  <form method="POST" action="{{ route('auth.register') }}">
+  <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class="mb-2">
       <label for="name" class="form-label fw-light">Full Name</label>
@@ -106,7 +106,7 @@
     </div>
     <p class="sign-opt text-secondary text-center">
       already have account?<a
-        href="{{ route('auth.login') }}"
+        href="{{ route('login') }}"
         class="mx-1 text-primary"
         >Sign in</a
       >

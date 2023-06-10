@@ -28,7 +28,7 @@
     @if ($post->image)
     <div class="my-4 rounded-2">
       <img
-        src="{{ url('storage/app/public/img/' . $post->image) }}"
+        src="{{ url('storage/img/'.$post->image) }}"
         alt="Post Image"
         class="img-fluid rounded-3 shadow-lg"
         width="60%"
