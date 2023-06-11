@@ -26,3 +26,5 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 // Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::resource('posts', PostController::class);
+
+

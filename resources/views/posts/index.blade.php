@@ -77,11 +77,11 @@
     </small>
   </div>
   <div class="button d-flex">
-    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-outline-dark"
+    <a href="{{ route('posts.show', $post->slug) }}" class="btn btn-outline-dark"
       >View More</a
     >
     <a
-      href="{{ route('posts.edit' , $post->id) }}"
+      href="{{ route("posts.edit", $post->slug) }}"
       class="btn btn-outline-primary"
       >Edit Post</a
     >

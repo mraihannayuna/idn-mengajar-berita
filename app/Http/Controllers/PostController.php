@@ -83,16 +83,22 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($slug)
     {
+
+        $post = Post::where('slug', $slug)->firstOrFail();
+
         return view('posts.show', compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit($slug)
     {
+
+        $post = Post::where('slug', $slug)->firstOrFail();
+
         return view('posts.edit', compact('post'));
     }
 
