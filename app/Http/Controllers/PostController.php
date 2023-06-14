@@ -12,7 +12,7 @@ class PostController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('IsAdmin');
+        $this->middleware('IsAdmin')->except('show');
     }
 
     /**
@@ -22,13 +22,11 @@ class PostController extends Controller
     {
         $user = Auth::user()->id;
         $posts = Post::where('deleted_at', null)->where('author', $user)->get();
+        $deleted_posts = Post::onlyTrashed()->where('author', $user)->get();
         $active = $posts->count();
+        $deleted = $deleted_posts->count();
 
-        $view_data = [
-            'posts' => $posts,
-            'active_posts' => $active
-        ];
-        return view('posts.index', $view_data);
+        return view('posts.index', compact('posts', 'active', 'deleted'));
     }
 
     /**
@@ -82,11 +80,8 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-
-        $post = Post::where('id', $id);
-
         return view('posts.edit', compact('post'));
     }
 
@@ -112,5 +107,11 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
 
+    }
+
+    public function trash(){
+        $posts = Post::onlyTrashed()->where('author', Auth::user()->id)->get();
+
+        return view('posts.trash', compact('posts'));
     }
 }

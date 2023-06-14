@@ -19,15 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
-// Route::get('login', [AuthController::class, 'login'])->name('auth.login');
-// Route::post('login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
-// Route::get('register', [AuthController::class, 'register_form'])->name('auth.register.form');
-// Route::post('register', [AuthController::class, 'register'])->name('auth.register');
-
-// Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
-
+Route::get('trash', [PostController::class, 'trash'])->name('posts.trash');
 Route::resource('posts', PostController::class);
 Route::post('posts/comment', [CommentController::class, 'create'])->name('comment.create');
-Route::delete('posts/comment{id}', [CommentController::class, 'delete'])->name('comment.delete');
 
 

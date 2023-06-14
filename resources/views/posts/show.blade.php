@@ -12,7 +12,7 @@
           >Home</a
         >
       </li>
-      <li class="breadcrumb-item" aria-current="page">Blog</li>
+      <li class="breadcrumb-item" aria-current="page">News</li>
       <li class="breadcrumb-item active" aria-current="page">
         {{$post->title}}
       </li>
@@ -24,7 +24,7 @@
     <p class="blog-post-meta">
       {{ date("d M Y", strtotime($post->created_at)) }} by
       <small class="fs-6 text-muted fw-light display-6"
-        >{{$post->author}}</small
+        >{{$post->writer['name']}}</small
       >
     </p>
     @if ($post->image)
@@ -56,16 +56,6 @@
           </h6>
           <p class="comment_commentator">{!!$comment->comment!!}</p>
         </div>
-        @if (Auth::check() && (Auth::user()->name == $comment->commentator_name ||
-        $post->author == Auth::user()->name))
-        <form
-          method="post"
-          action="{{ route('comment.delete', $comment) }}"
-        >
-          @method('DELETE') @csrf
-          <button type="submit" class="btn btn-sm btn-danger">-</button>
-        </form>
-        @endif
       </div>
       @endforeach 
       @else

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blogku</title>
-    <link rel="icon" type="image/x-icon" href="{{asset('img/logo.svg')}}" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -68,7 +66,7 @@
 					<h3 class="mb-0">{{$post->title}}</h3>
 					<div class="mb-1 text-body-secondary">{{ date("d M Y", strtotime($post->created_at)) }}</div>
 					<p class="card-text mb-auto">{!!$post->content!!}</p>
-					<a href="{{ route('posts.show' , $post->slug) }}" class="icon-link gap-1 icon-link-hover stretched-link">
+					<a href="{{ route('posts.show' , $post) }}" class="icon-link gap-1 icon-link-hover stretched-link">
 						Read more a this
 					</a>
 				</div>

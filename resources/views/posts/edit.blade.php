@@ -1,4 +1,5 @@
-@extends('layouts.template') @section('title', "Edit Post: $post->title")
+@extends('layouts.template') 
+@section('title', "Edit Post: {{$post->title}}")
 @section('content')
 <div class="container">
   <h2 class="title">Edit Post</h2>

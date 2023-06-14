@@ -33,8 +33,12 @@
   <p>Find Out of The Worldwide!</p>
   <div class="text-light">
     <h6 class="border border-light bg-dark bg-opacity-75 px-2 py-3 rounded-2">
-      {{ $active_posts }} posts active
+      {{ $active }} posts active
       <i class="fa-solid fa-check-to-slot text-primary"></i>
+    </h6>
+    <h6 class="border border-danger bg-dark bg-opacity-75 px-2 py-3 rounded-2">
+      <a class="text-decoration-none text-danger" href="{{route('posts.trash')}}">{{ $deleted }} posts deleted</a>
+      <i class="fa-solid fa-check-to-slot text-danger"></i>
     </h6>
   </div>
 </div>
@@ -81,7 +85,7 @@
       >View More</a
     >
     <a
-      href="{{ route("posts.edit", $post->slug) }}"
+      href="{{ route("posts.edit", $post) }}"
       class="btn btn-outline-primary"
       >Edit Post</a
     >
