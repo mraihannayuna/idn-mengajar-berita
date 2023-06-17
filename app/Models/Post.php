@@ -17,7 +17,7 @@ class Post extends Model
         'slug',
         'content',
         'image',
-        'author'
+        'user_id'
     ];
 
     /**
@@ -27,7 +27,7 @@ class Post extends Model
      */
     public function writer(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'author', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     /**
@@ -51,3 +51,6 @@ class Post extends Model
 
     }
 }
+
+
+

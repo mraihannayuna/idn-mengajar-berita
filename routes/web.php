@@ -24,3 +24,4 @@ Route::resource('posts', PostController::class);
 Route::post('posts/comment', [CommentController::class, 'create'])->name('comment.create');
 
 
+
