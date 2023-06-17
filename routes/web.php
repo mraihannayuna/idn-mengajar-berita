@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('posts', PostController::class);
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::get('trash', [PostController::class, 'trash'])->name('posts.trash');
-Route::resource('posts', PostController::class);
 Route::post('posts/comment', [CommentController::class, 'create'])->name('comment.create');
 
 

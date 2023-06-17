@@ -1,5 +1,5 @@
 @extends('layouts.template') 
-@section('title', "$post->title") 
+@section('title', $post->title) 
 @section('content')
 <div class="container">
   <nav aria-label="breadcrumb">
