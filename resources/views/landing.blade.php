@@ -65,21 +65,20 @@
 					<strong class="d-inline-block text-primary-emphasis">{{$post->writer['name']}}</strong>
 					<h3 class="mb-0">{{$post->title}}</h3>
 					<div class="mb-1 text-body-secondary">{{ date("d M Y", strtotime($post->created_at)) }}</div>
-					<p class="card-text mb-auto">{!!$post->content!!}</p>
+					<p class="card-text mb-auto">{!!Illuminate\Support\Str::limit($post->content, 250)!!}</p>
 					<a href="{{ route('posts.show' , $post) }}" class="icon-link gap-1 icon-link-hover stretched-link">
 						Read more a this
 					</a>
 				</div>
 				@if ($post->image)
-					<div class="col-4 d-none d-lg-block">
-						<img style="max-width: 100%; max-height: 260px; object-fit: cover;" src="{{ url('storage/img/' . $post->image) }}" alt="">
+					<div class="col-4">
+						<img width="100%" style="object-fit: cover;" src="{{ url('storage/img/' . $post->image) }}" alt="">
 					</div>
 				@endif
 			</div>
 		</div>
 		@endforeach
 	</div>
-
     @endsection
   </body>
 </html>

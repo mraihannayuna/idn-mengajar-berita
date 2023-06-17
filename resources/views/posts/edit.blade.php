@@ -4,7 +4,8 @@
 <div class="container">
   <h2 class="title">Edit Post</h2>
   <form method="POST" action="{{ route('posts.update', $post->id) }}">
-    @method('PATCH') @csrf
+    @method('PATCH') 
+    @csrf
     <label for="title" class="form-label">Judul Postingan</label>
     <input
       type="text"
@@ -73,8 +74,9 @@
         <span class="fw-bold">{{$post->title}}</span>
       </div>
       <div class="modal-footer">
-        <form method="post" action="{{ route('posts.destroy', $post->id) }}">
-          @method('DELETE') @csrf
+        <form method="post" action="{{ route('posts.destroy', $post) }}">
+          @method('DELETE') 
+          @csrf
           <button type="submit" class="btn btn-danger">Hapus</button>
         </form>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
