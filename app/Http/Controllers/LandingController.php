@@ -16,3 +16,5 @@ class LandingController extends Controller
         return view('landing', $view_data);
     }
 }
+
+
