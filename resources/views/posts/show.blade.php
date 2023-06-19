@@ -49,7 +49,7 @@
       <div class="comment-container">
         <div>
           <h6 class="nama_commentator pt-2">
-            {{$comment->commentator_name}}<small
+            {{$comment->commentator['name']}}<small
               class="px-2 text-muted fs-6 fw-light display-6"
               >{{date('D H:i', strtotime($comment->created_at))}}</small
             >
@@ -75,15 +75,7 @@
       @method('POST') @csrf
       <input type="hidden" name="post_id" value="{{ $post->id }}" />
       <input type="hidden" name="commentator_id" value="{{ Auth::user()->id }}" />
-      <div class="form-group">
-        <input
-          type="hidden"
-          class="form-control"
-          id="name"
-          name="commentator_name"
-          value="{{Auth::user()->name}}"
-        />
-      </div>
+      
       <div class="form-group">
         <textarea
           class="form-control rounded-1"
